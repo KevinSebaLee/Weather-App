@@ -18,7 +18,9 @@
   overflow: hidden;
   height: 64px;
   width: 100%;
+  max-width: 100%;
   backdrop-filter: blur(10px);
+  box-sizing: border-box;
 }
 
 [data-theme="dark"] .search-input-container {

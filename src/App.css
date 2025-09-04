@@ -48,23 +48,50 @@
   --glass-border: rgba(255, 255, 255, 0.1);
 }
 
+/* Mobile-first approach and touch optimizations */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Ensure minimum touch target size */
+button, 
+.control-btn,
+.search-result-item,
+input[type="button"],
+input[type="submit"] {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Prevent zoom on input focus for iOS */
+input, textarea, select {
+  font-size: 16px;
+}
+
+@media (max-width: 480px) {
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+  }
+  
+  /* Make sure all text is readable */
+  body {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-#root {
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-}
-
 html {
   font-size: 16px;
   scroll-behavior: smooth;
   overflow-x: hidden;
+  width: 100%;
+  height: 100%;
 }
 
 body {
@@ -82,12 +109,22 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
+  width: 100%;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* App layout */
 .app {
   min-height: 100vh;
-  width: 100vw;
+  width: 100%;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   background: var(--bg-primary);
@@ -128,13 +165,14 @@ body {
   flex: 1;
   padding: 48px 0 80px 0;
   width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
 .container {
-  max-width: none;
-  width: 100vw;
-  margin: 0;
+  max-width: 1600px;
+  width: 100%;
+  margin: 0 auto;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -154,8 +192,8 @@ body {
   gap: 40px;
   align-items: start;
   width: 100%;
-  max-width: 1600px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   padding: 0 32px;
 }
 
@@ -199,39 +237,62 @@ body {
 
 @media (max-width: 768px) {
   .main-content {
-    padding: 20px 0;
+    padding: 20px 0 40px 0;
   }
   
   .container {
-    gap: 24px;
+    gap: 20px;
   }
   
   .search-section {
-    margin-bottom: 8px;
-    padding: 0 16px;
+    margin-bottom: 12px;
+    padding: 0 12px;
   }
   
   .weather-content {
-    padding: 0 16px;
+    padding: 0 12px;
+    gap: 20px;
   }
 }
 
 @media (max-width: 480px) {
   .main-content {
-    padding: 16px 0;
+    padding: 16px 0 32px 0;
   }
   
   .container {
-    gap: 20px;
+    gap: 16px;
   }
   
   .search-section {
-    padding: 0 12px;
+    padding: 0 8px;
+    margin-bottom: 8px;
   }
   
   .weather-content {
-    padding: 0 12px;
-    gap: 20px;
+    padding: 0 8px;
+    gap: 16px;
+  }
+  
+  /* Ensure touch-friendly interactions */
+  * {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* Additional mobile optimizations */
+@media (max-width: 360px) {
+  .main-content {
+    padding: 12px 0 24px 0;
+  }
+  
+  .search-section,
+  .weather-content {
+    padding: 0 4px;
+  }
+  
+  .container {
+    gap: 12px;
   }
 }
 
