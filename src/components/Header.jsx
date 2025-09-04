@@ -15,7 +15,7 @@ const Header = () => {
         <div className="logo-section">
           <h1 className="app-title">
             <span className="weather-icon">🌤️</span>
-            Aplicación del Tiempo
+            Weather App
           </h1>
         </div>
 
@@ -35,16 +35,18 @@ const Header = () => {
                 </svg>
               )}
               <span className="btn-text">Mi Ubicación</span>
-            </button>          <button
-            className="control-btn unit-btn"
-            onClick={toggleTemperatureUnit}
-            title={`Cambiar a ${temperatureUnit === 'metric' ? 'Fahrenheit' : 'Celsius'}`}
-          >
-            <span className="unit-symbol">
-              {temperatureUnit === 'metric' ? '°C' : '°F'}
-            </span>
-            <span className="btn-text">{getUnitLabel()}</span>
-          </button>
+            </button>
+
+            <button
+              className="control-btn unit-btn"
+              onClick={toggleTemperatureUnit}
+              title={`Cambiar a ${temperatureUnit === 'metric' ? 'Fahrenheit' : 'Celsius'}`}
+            >
+              <span className="unit-symbol">
+                {temperatureUnit === 'metric' ? '°C' : '°F'}
+              </span>
+              <span className="btn-text">{getUnitLabel()}</span>
+            </button>
 
           <button
             className="control-btn theme-btn"

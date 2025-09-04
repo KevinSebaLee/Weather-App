@@ -34,11 +34,11 @@ const WeatherForecast = () => {
     tomorrow.setDate(today.getDate() + 1);
 
     if (date.toDateString() === today.toDateString()) {
-      return 'Today';
+      return 'Hoy';
     } else if (date.toDateString() === tomorrow.toDateString()) {
-      return 'Tomorrow';
+      return 'Mañana';
     } else {
-      return date.toLocaleDateString('en-US', { weekday: 'short' });
+      return date.toLocaleDateString('es-ES', { weekday: 'short' });
     }
   };
 
@@ -46,7 +46,7 @@ const WeatherForecast = () => {
 
   return (
     <div className="weather-forecast slide-in-right">
-      <h3 className="forecast-title">5-Day Forecast</h3>
+      <h3 className="forecast-title">Pronóstico de 5 días</h3>
       <div className="forecast-list">
         {dailyForecasts.map((forecast, index) => {
           const temp = convertTemperature(forecast.main.temp);

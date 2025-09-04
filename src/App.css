@@ -1,6 +1,4 @@
-/* CSS Custom Properties (Variables) for theming */
 :root {
-  /* Light theme colors */
   --bg-primary: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   --bg-secondary: #e2e8f0;
   --card-background: rgba(255, 255, 255, 0.95);
@@ -15,19 +13,16 @@
   --accent-hover: #2563eb;
   --error-color: #ef4444;
   
-  /* Enhanced shadows for desktop */
   --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.05);
   --shadow-md: 0 8px 16px -4px rgb(0 0 0 / 0.1), 0 4px 8px -4px rgb(0 0 0 / 0.1);
   --shadow-lg: 0 16px 32px -8px rgb(0 0 0 / 0.15), 0 8px 16px -8px rgb(0 0 0 / 0.15);
   --shadow-xl: 0 32px 64px -16px rgb(0 0 0 / 0.25), 0 16px 32px -16px rgb(0 0 0 / 0.25);
   --shadow-focus: 0 0 0 4px rgb(59 130 246 / 0.15);
   
-  /* Glass morphism effect */
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-border: rgba(255, 255, 255, 0.2);
 }
 
-/* Dark theme colors */
 [data-theme="dark"] {
   --bg-primary: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
   --bg-secondary: #334155;
@@ -43,19 +38,16 @@
   --accent-hover: #3b82f6;
   --error-color: #f87171;
   
-  /* Enhanced dark theme shadows */
   --shadow-sm: 0 2px 4px 0 rgb(0 0 0 / 0.4);
   --shadow-md: 0 8px 16px -4px rgb(0 0 0 / 0.4), 0 4px 8px -4px rgb(0 0 0 / 0.4);
   --shadow-lg: 0 16px 32px -8px rgb(0 0 0 / 0.5), 0 8px 16px -8px rgb(0 0 0 / 0.5);
   --shadow-xl: 0 32px 64px -16px rgb(0 0 0 / 0.6), 0 16px 32px -16px rgb(0 0 0 / 0.6);
   --shadow-focus: 0 0 0 4px rgb(96 165 250 / 0.2);
   
-  /* Dark glass morphism */
   --glass-bg: rgba(0, 0, 0, 0.1);
   --glass-border: rgba(255, 255, 255, 0.1);
 }
 
-/* Global reset and base styles */
 * {
   margin: 0;
   padding: 0;
@@ -211,12 +203,16 @@ body {
   }
   
   .container {
-    padding: 0 16px;
-    gap: 20px;
+    gap: 24px;
   }
   
   .search-section {
-    margin-bottom: 4px;
+    margin-bottom: 8px;
+    padding: 0 16px;
+  }
+  
+  .weather-content {
+    padding: 0 16px;
   }
 }
 
@@ -226,8 +222,16 @@ body {
   }
   
   .container {
+    gap: 20px;
+  }
+  
+  .search-section {
     padding: 0 12px;
-    gap: 16px;
+  }
+  
+  .weather-content {
+    padding: 0 12px;
+    gap: 20px;
   }
 }
 
