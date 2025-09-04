@@ -1,0 +1,249 @@
+.api-status-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  backdrop-filter: blur(4px);
+}
+
+.api-status-modal {
+  background: var(--card-background);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: var(--shadow-xl);
+  max-width: 500px;
+  width: 90%;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.api-status-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border-light);
+  background: var(--detail-background);
+  border-radius: 16px 16px 0 0;
+}
+
+.status-icon {
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+}
+
+.status-title {
+  flex: 1;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.close-button {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--text-muted);
+  cursor: pointer;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  background: var(--hover-background);
+  color: var(--text-color);
+}
+
+.api-status-content {
+  padding: 24px;
+}
+
+.status-message {
+  font-size: 16px;
+  color: var(--text-color);
+  margin: 0 0 16px 0;
+  line-height: 1.5;
+}
+
+.status-suggestion {
+  background: var(--detail-background);
+  border-left: 4px solid #f59e0b;
+  padding: 12px 16px;
+  border-radius: 0 8px 8px 0;
+  margin: 16px 0;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.status-suggestion strong {
+  color: var(--accent-color);
+}
+
+.api-key-info {
+  background: var(--detail-background);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  border: 1px solid var(--border-light);
+}
+
+.api-key-info h4 {
+  font-size: 16px;
+  color: var(--text-color);
+  margin: 0 0 12px 0;
+}
+
+.api-key-info ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.api-key-info li {
+  color: var(--text-muted);
+  margin: 8px 0;
+  line-height: 1.4;
+}
+
+.api-key-info li strong {
+  color: var(--text-color);
+}
+
+.api-key-info a {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.api-key-info a:hover {
+  color: var(--accent-hover);
+}
+
+.api-test-data {
+  background: var(--bg-secondary);
+  padding: 16px;
+  border-radius: 8px;
+  margin: 16px 0;
+  border: 1px solid var(--border-light);
+}
+
+.api-test-data h4 {
+  font-size: 14px;
+  color: var(--text-color);
+  margin: 0 0 8px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.api-test-data p {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin: 4px 0;
+}
+
+.api-status-actions {
+  display: flex;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid var(--border-light);
+  background: var(--detail-background);
+  border-radius: 0 0 16px 16px;
+}
+
+.retry-button,
+.dismiss-button {
+  flex: 1;
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-button {
+  background: var(--accent-color);
+  color: white;
+  border: 2px solid var(--accent-color);
+}
+
+.retry-button:hover:not(:disabled) {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.retry-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.dismiss-button {
+  background: var(--detail-background);
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+}
+
+.dismiss-button:hover {
+  background: var(--hover-background);
+  border-color: var(--accent-color);
+  transform: translateY(-1px);
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .api-status-modal {
+    margin: 20px;
+    width: calc(100% - 40px);
+  }
+  
+  .api-status-header {
+    padding: 16px 20px;
+  }
+  
+  .api-status-content {
+    padding: 20px;
+  }
+  
+  .api-status-actions {
+    padding: 16px 20px;
+    flex-direction: column;
+  }
+  
+  .status-title {
+    font-size: 16px;
+  }
+  
+  .status-icon {
+    font-size: 20px;
+    width: 28px;
+    height: 28px;
+  }
+}
